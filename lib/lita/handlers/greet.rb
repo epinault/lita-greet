@@ -2,7 +2,7 @@ module Lita
   module Handlers
     class Greet < Handler
 
-      route(/^(hello|hi|good morning|howdy|yo!?$|hey) .*/i, :say_hello)
+      route(/^(hello|hi!?(| .*)$|good morning|howdy|yo!?$|hey).*/i, :say_hello)
       route(/^welcome (.+)/i, :welcome)
 
       def say_hello(response)
