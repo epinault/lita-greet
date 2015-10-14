@@ -13,4 +13,10 @@ describe Lita::Handlers::Greet, lita_handler: true do
     send_message("Hi")
     expect(replies.last).to match(/Hello/)
   end
+
+  it "does not send a message when the user object is empty" do
+    user = Lita::User.create("1", name: "")
+    send_message("Hi", as: user)
+    expect(replies.last).not_to match(/Hello/)
+  end
 end
