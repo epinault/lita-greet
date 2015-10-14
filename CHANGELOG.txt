@@ -1,0 +1,10 @@
+0.1.1
+=====
+
+- Fix in the regex how we match someone saying Hi
+
+
+0.1.0
+=====
+
+- Initial Release
