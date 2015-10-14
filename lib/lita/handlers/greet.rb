@@ -4,8 +4,9 @@ module Lita
 
       route(/^(hello|hi|good morning|howdy|yo!?$|hey).*/i, :say_hello)
       route(/^welcome (.+)/i, :welcome)
-    
+
       def say_hello(response)
+        return if response.user.name.empty?
         reply_to_name = response.user.metadata['mention_name'].nil? ?
                          "#{response.user.name}" :
                         "#{response.user.metadata['mention_name']}"
