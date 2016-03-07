@@ -10,14 +10,13 @@ module Lita
         reply_to_name = response.user.metadata['mention_name'].nil? ?
                         "#{response.user.name}" :
                         "#{response.user.metadata['mention_name']}"
-        bot_greeting = ["Ahoy", "Greetings", "Hello", "Hey", "Hi", "Howdy", "Sup"].sample
-        response.reply "#{bot_greeting} #{reply_to_name}!"
+        bot_reply = response.message.body.gsub(/ #{robot.name}/i, "")
+        response.reply "#{bot_reply} #{reply_to_name}!"
       end
 
       def welcome(response)
         response.reply "Hello and Welcome #{response.matches[0][0]}!"
       end
-
 
     end
 
