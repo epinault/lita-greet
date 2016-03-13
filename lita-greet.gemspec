@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-greet"
-  spec.version       = "0.1.1"
+  spec.version       = "0.2.0"
   spec.authors       = ["epinault"]
   spec.email         = ["emmanuel.pinault@zumobi.com"]
   spec.description   = "Make your bot more welcoming and greeting"
