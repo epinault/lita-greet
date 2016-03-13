@@ -1,19 +1,19 @@
 require "spec_helper"
 
 describe Lita::Handlers::Greet, lita_handler: true do
-  it { is_expected.to route("hello dog").to(:say_hello) }
-  it { is_expected.to route("hi dog").to(:say_hello) }
+  it { is_expected.to route("hello").to(:say_hello) }
+  it { is_expected.to route("hi there").to(:say_hello) }
   it { is_expected.to route("yo!").to(:say_hello) }
-  it { is_expected.to route("hey bot").to(:say_hello) }
-  it { is_expected.to route("greetings chatbot").to(:say_hello) }
-  it { is_expected.to route("good morning").to(:say_hello) }
+  it { is_expected.to route("heeeyyyy").to(:say_hello) }
+  it { is_expected.to route("greetings").to(:say_hello) }
+  it { is_expected.to route("gooooooooood morning").to(:say_hello) }
   it { is_expected.to route("good afternoon").to(:say_hello) }
-  it { is_expected.to route("good evening").to(:say_hello) }
-  it { is_expected.to route("good night").to(:say_hello) }
-  it { is_expected.to route("good nite").to(:say_hello) }
+  it { is_expected.to route("Good evening").to(:say_hello) }
+  it { is_expected.to route("good night!").to(:say_hello) }
+  it { is_expected.to route("Good Nite").to(:say_hello) }
   it { is_expected.to route("howdy").to(:say_hello) }
-  it { is_expected.to route("sup").to(:say_hello) }
-  it { is_expected.to route("ahoy").to(:say_hello) }
+  it { is_expected.to route("sup!").to(:say_hello) }
+  it { is_expected.to route("ahoy there").to(:say_hello) }
 
   it { is_expected.to route("welcome John Doe").to(:welcome) }
 
@@ -23,7 +23,7 @@ describe Lita::Handlers::Greet, lita_handler: true do
   end
 
   it "sends good morning back to the user name (since no mention_name is supplied) who greeted it" do
-    user = Lita::User.create("1", name: "Stephen")    
+    user = Lita::User.create("1", name: "Stephen")
     send_message("Good morning!", as: user)
     expect(replies.last).to match(/Good morning Stephen/)
   end
